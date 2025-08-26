@@ -1,0 +1,134 @@
+CRUD App with Form & Table
+
+🎯 Objective
+
+Build a simple web application using HTML, CSS, and JavaScript where the user can:
+
+Add new records (user details) through a form.
+
+Display all records inside a table.
+
+Edit any existing record.
+
+Delete any record.
+
+
+This will give you hands-on practice with form handling, DOM manipulation, arrays, and events.
+
+
+---
+
+🔹 Part 1 – Setup the Form
+
+Create an HTML form with the following fields:
+
+Name (text input)
+
+Email (email input)
+
+Submit button
+
+
+
+When the user fills the form and clicks submit, the details should be stored in a JavaScript array or object.
+
+
+---
+
+🔹 Part 2 – Display Data in a Table
+
+Create a table with headings:
+Sr. No | Name | Email | Actions
+
+Every time a new record is added, it should appear as a new row in the table.
+
+The Actions column should have two buttons: Edit and Delete.
+
+
+
+---
+
+🔹 Part 3 – Add Operation
+
+When the user enters details and clicks Submit, the data should be saved and displayed in the table immediately.
+
+Example:
+
+Sr. No | Name       | Email
+1      | Ali Khan   | ali@email.com
+
+
+
+--
+-
+
+🔹 Part 4 – Edit Operation
+
+When the user clicks Edit on a row:
+
+The existing data of that row should appear back inside the form (so the user can change it).
+
+The Submit button should update the record instead of adding a new one.
+
+
+After editing, the table should refresh with updated values.
+
+
+
+---
+
+🔹 Part 5 – Delete Operation
+
+When the user clicks Delete on a row:
+
+That specific record should be removed from the table.
+
+The remaining records should re-adjust (serial numbers update accordingly).
+
+
+
+
+---
+
+🔹 Part 6 – Extra (Optional for More Practice)
+
+Validation: Don’t allow empty fields.
+
+Local Storage: Save records in the browser’s storage so data remains after refresh.
+
+Styling: Use CSS to make the form and table look clean and professional.
+
+
+
+---
+
+🏆 Expected Outcome
+
+By the end, you’ll have a working mini-app where:
+
+1. User enters Name + Email in the form.
+
+
+2. Data shows in a table.
+
+
+3. User can edit or delete any record.
+
+
+4. The app demonstrates all four CRUD operations:
+
+Create → Add a record.
+
+Read → Show in table.
+
+Update → Edit a record.
+
+Delete → Remove a record.
+
+
+
+
+
+---
+
+👉 Do you want me to also give you a step-by-step guide (like “Step 1: Make form in HTML, Step 2: Make table…”) so you can try to build it gradually without seeing the final code?
