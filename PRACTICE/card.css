@@ -1,0 +1,55 @@
+.courses{
+	display:flex; 
+}
+.course{
+	width:360px;
+	height:360px;
+	background-color:gray;
+	margin:15px;
+	border:10px orange dotted; 
+	border-radius: 10px;
+	text-align: center;
+	box-shadow: 3px 3px 3px black;
+
+}
+.courseimg{
+	width: 250px;
+	border-radius:10px; 
+}
+#coursetitle{
+	font-size: 24px;
+	font-family: Forte;
+	color: white;
+}
+#coursedesc{
+	font-family: Forte;
+	color:gold;
+}
+#coursebtn{
+	width:100px;
+	height:30px;
+	background-color:brown;
+	border: none;
+	color: blue;
+	margin-top:05px;
+	border-radius:10px;   
+}
+#coursebtn:hover{
+	background-color: cyan;
+	transform:scale(1.2); 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

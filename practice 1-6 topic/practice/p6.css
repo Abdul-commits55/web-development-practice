@@ -1,0 +1,43 @@
+#qwer{
+text-align: center;
+}
+
+body{
+	background-color: lightblue;
+}
+.container{
+	background-color: white;
+	width: 200px;
+	border-radius: 5px;
+	margin-right: 50px;
+}
+
+#btn{
+	width: 90px;
+	background-color:blue ;
+	border-radius: 5px;
+	color: white;
+	border: none;
+}
+#btn2{
+	width: 80px;
+	border-radius:5px;
+	border: none;
+}
+.btn3{
+	width: 150px;
+	border-radius: 5px;
+	background-color: blue;
+	color: white;
+}
+.inputone{
+	border-radius: 5px;
+	border: border:1px solid black;;
+}
+.inputtow{
+	border-radius: 5px;
+	border:1px solid black;
+}
+.ppp{
+	color: blue;
+}

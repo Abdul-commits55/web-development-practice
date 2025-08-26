@@ -1,0 +1,36 @@
+body{
+	background-color: white;
+}
+.container{
+ 	background-color: lightpink;
+ 	width: 400px;
+ 	height: 400px;
+ 	margin: auto;
+ 	border: 2px solid black;
+ 	border-radius:10px;  
+}
+*{
+	text-align: center;
+	margin-top: 30px;
+	font-size: 20px;
+}
+h1{
+	font-size: 30px;
+	font-family: Dubai;
+}
+.button{
+	width: 250px;
+	height:50px; 
+	margin-top: 70px;
+	border-radius: 10px;
+	background-color: blue;
+	color: white;
+}
+.inputone{
+	border-radius: 10px;
+	height: 30px;
+}
+.inputtow{
+	border-radius: 10px;
+	height: 30px;	
+}

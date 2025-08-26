@@ -1,0 +1,56 @@
+body{
+	background-color: lightblue;
+	text-align: center;
+}
+form{
+	background-color: white;
+	width:400px;
+	height: 300px; 
+	border-radius: 20px;
+	margin-left: 450px;
+	margin-top: 150px;
+}
+
+
+#qqq{
+	font-size:20px;
+	border-radius:20px;
+	font-family: Ebrima; 
+	margin-top:20px;  
+}
+	input::placeholder{
+	font-size:20px;
+	color: gray;
+
+}
+#aaa{
+	margin-top: 20px;
+	font-size:20px;
+	border-radius:20px; 
+	font-family: Ebrima; 
+}
+h1{
+
+	font-family: Ebrima;
+}
+#eee{
+	margin-top: 30px;
+	font-size: 20px;
+	height:30px;
+	width: 220px;
+	border-radius: 20px;
+	color: white;
+	background-color: blue; 
+}
+
+
+
+
+
+
+
+
+
+
+
+

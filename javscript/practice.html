@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>javs file</title>
+		<script src="practice.js"></script>
+
+</head>
+<body>
+my name is abdul mohiz my friend name is abubaker and my brother name is abdul moheed.........!!!!!!!!!!<br>
+	<input type="number" placeholder="First no" class="input1" id="firstno" onkeyup="firstno()"><br>
+	<input type="number" placeholder="Second no" class="input2" id="secondno" onkeyup="secondno()"><br>
+	<input type="number" placeholder="Result" class="input1" id="sum">
+
+</body>
+<script> 
+	console.log("page loaded");
+	function firstno(){
+	//	console.log('first no key down');
+		
+		sum();
+	};
+
+	function secondno(){
+		console.log('in second key ')
+		
+		sum();
+	}
+
+	function sum(){
+		console.log("result is calling")
+		let fno = document.getElementById('firstno').value;
+		console.log(fno);
+
+		let sno = document.getElementById('secondno').value;
+		console.log(sno);
+
+		let result=(parseInt(fno)+parseInt(sno));
+		console.log(result)
+
+		 document.getElementById('sum').value=result;
+
+	}
+
+
+</script>
+</html>

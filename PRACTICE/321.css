@@ -1,0 +1,27 @@
+
+.box{
+	width: 500px;
+	background-color:gray;
+	height:500px;
+	color: darkred; 
+	text-align: center;
+	border:5px dotted black;
+	border-radius: 50%
+	box-shadow:30px 30px black;
+	margin-top:50px;
+	margin-left:60px;  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

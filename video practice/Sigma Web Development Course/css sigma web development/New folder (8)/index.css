@@ -1,0 +1,9 @@
+nav ul li{
+    background-color: yellowgreen;
+    /* list-style-type: we set a emoji ; */
+    list-style-position: inside;
+    border: 2px solid red;
+    /* list-style:disc inside  ; */
+    /* list-style-image:url(friend.jpg); */
+    /* use small image */
+}

@@ -1,0 +1,12 @@
+.box{
+    border: 2px solid black;
+    padding: 34px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-shadow: 5px 15px 15px orange;
+} 
+.text{
+ text-shadow: 2px 2px 4px green ;
+ outline: 2px solid rgb(7, 4, 4);
+ border: 2px solid rgb(129, 37, 0);
+ outline-offset: 20px;
+}

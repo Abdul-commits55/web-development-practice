@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    background-color: aquamarine;
+}
+.box:hover{
+    border: 2px solid rgb(255, 0, 34);
+}
+.box1{
+    color: rgb(87, 92, 82);
+    padding: 10px;
+    margin: 35px;
+    border: 2px solid blue;
+    height: 200px;
+    box-sizing: border-box ;
+}
+.box2{
+    color: rgb(224, 22, 22);
+    color: rgb(87, 92, 82);
+    padding: 10px;
+    margin: 25px;
+    border: 2px solid rgb(0, 0, 0);
+    height: 200px;
+    box-sizing: border-box ;
+}

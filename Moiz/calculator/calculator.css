@@ -1,0 +1,31 @@
+.container{
+    border: 2px solid black;
+    width:200px ;
+    margin:70px;
+    margin-left: 30%;
+background: #e6952c;
+    text-align: center;
+}
+.btn{
+    margin: 10px;
+    background:rgba(255, 254, 253, 0.76);
+}
+.btn1{
+    margin: 10px;
+    background:rgba(255, 254, 253, 0.76);
+    width: 24px;
+}
+
+.btn:hover{
+    color: rgb(250, 250, 250);
+    background: hsl(0, 3%, 7%);
+}
+.btn1:hover{
+    color: rgb(250, 250, 250);
+    background: hsl(0, 3%, 7%);
+}
+#result{
+    border-color: rgb(139, 108, 108);
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px  saddlebrown;
+}

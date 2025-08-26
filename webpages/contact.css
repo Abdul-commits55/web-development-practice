@@ -1,0 +1,72 @@
+
+.main{
+	width: 100%;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%,rgba(0, 0, 0, 0.5)50%),url(usss.jpg);
+	background-position: center;
+	background-size: cover;
+	height: 750px;
+}
+
+.navbar{
+	width: 1200px;
+	height: 75px;
+	margin: auto;
+	display: flex;
+}
+.menu{
+	width: 400px;
+	float: left;
+	height: 70px;
+}
+
+.icon{
+	width: 200px;
+	height: 70px;
+	float: left;
+}
+.logo{
+	color: orange;
+	font-size: 40px;
+	font-family: Arial;
+	padding-left: 20px;
+	float: left;
+	padding-top: 10px;
+}
+.search{
+	margin-left: 270px;
+	width: 330px;
+/*	float: left;*/
+	margin-left: 25%;
+}
+.srch{
+	font-family:'Times New Roman';
+	width: 200px;
+	height: 40px;
+	background: transparent;
+	border: 1px solid orange;
+	margin-top: 45px; 
+	color: white;
+	border-right: none;
+	font-size: 16px;
+	float: left;
+	padding: 10px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.btn{
+	width: 100px;
+	height: 40px;
+	background: orange;
+	border: 2px solid orange;
+	margin-top: 45px;
+	color: white;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	font-size: 15px;
+}
+.btn:fouce{
+	outline: none;
+}
+.srch:fouce{
+    outline: none;
+}

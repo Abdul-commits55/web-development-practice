@@ -1,0 +1,39 @@
+
+p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    font-weight: 600;
+    text-decoration:underline;
+    text-decoration-color:rgb(208, 40, 22) ;
+    line-height: 2;
+    letter-spacing: 2px;
+}
+h1{
+   font-family:Bernard MT;
+
+}
+h2{
+    text-decoration:underline;
+    text-decoration-color:rgb(207, 177, 8) ;
+    text-transform: capitalize;
+    text-decoration-thickness:7px ;
+    text-indent: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+h2:hover{
+    font-size: 30px;
+    font-style: italic;
+    
+}
+.lorem:hover{
+    border: 2px solid rgb(0, 153, 255);
+
+}
+.lorem{
+    border: 2px solid red;
+    width: auto;
+    /* text-overflow: clip; */
+    /* overflow: hidden; */
+    word-break: break-all;
+}

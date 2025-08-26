@@ -1,0 +1,48 @@
+.hero{
+	height:400px;
+	background-color:skyblue;
+	text-align:center;
+	background:url("7.jpg"); 
+}
+*{
+	margin:0;
+	padding:0;  
+}
+.heroconcent{
+	padding: 100px;
+}
+#title{
+	color:white;
+	font-size:40px; 
+	font-family:Forte; 
+}
+#desc{
+	color:black;
+    font-size:25px; 
+    font-family:Forte; 
+}
+#btc{
+	background:cyan; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

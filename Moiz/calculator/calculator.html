@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+  </head>
+  <body>
+    <!-- First element using for calculator -->
+     <div class="container">
+    <h1 style="background-color: rgb(233, 216, 204);">Calculator </h1>
+    <input id="result">
+    <br>
+    <br>
+    <button class="btn"  onclick="buttonClick(1)">1</button>
+    <button class="btn"  onclick="buttonClick(2)">2</button>
+    <button class="btn"  onclick="buttonClick(3)">3</button>
+    <br>
+    <button class="btn"  onclick="buttonClick(4)">4</button>
+    <button class="btn"  onclick="buttonClick(5)">5</button>
+    <button class="btn"  onclick="buttonClick(6)">6</button>
+    <br>
+    <button class="btn"  onclick="buttonClick(7)">7</button>
+    <button class="btn"  onclick="buttonClick(8)">8</button>
+    <button class="btn"  onclick="buttonClick(9)">9</button>
+    <br>
+    <button class="btn"  onclick="buttonClick(0)">0</button>
+    <button class="btn1"  onclick="buttonClick('+')">+</button>
+    <button class="btn1"  onclick="buttonClick('-')">-</button>
+</div>
+  </body>
+  <script>
+    let result = document.getElementById("result");
+    function buttonClick(op) {
+        console.log('here1');
+        if(result.getAttribute('value')){
+            console.log('here2');
+            op = result.getAttribute('value') + op
+        }
+        console.log('here3');
+
+      result.setAttribute('value',op);
+    }
+  </script>
+</html>
