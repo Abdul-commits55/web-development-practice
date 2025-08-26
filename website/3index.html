@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop Management</title>
+  <link rel="stylesheet" href="3index.css" />
+  <script src="3index.js"></script>
+</head>
+<body>
+  <header class="container">
+    <h1>Shop Management</h1>
+    <p class="muted">Add items, set prices, and track profit automatically</p>
+  </header>
+
+  <main class="container">
+    <!-- Add Item Form -->
+    <section class="card">
+      <h2>Add New Item</h2>
+      <form id="itemForm">
+        <div class="grid">
+          <label>
+            Date
+            <input type="date" id="date" required />
+          </label>
+          <label>
+            Item Name
+            <input type="text" id="name" placeholder="e.g., Shirt, Suit" required />
+          </label>
+          <label>
+            Purchase Price (per unit)
+            <input type="number" id="buy" step="0.01" min="0" placeholder="e.g., 1500" required />
+          </label>
+          <label>
+            Sale Price (per unit)
+            <input type="number" id="sell" step="0.01" min="0" placeholder="e.g., 2200" required />
+          </label>
+          <label>
+            Quantity
+            <input type="number" id="qty" step="1" min="1" value="1" required />
+          </label>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn primary">Add Item</button>
+          <button type="button" id="resetForm" class="btn">Reset</button>
+        </div>
+      </form>
+      <small class="muted">
+        Note: Data is saved in your computer’s <b>localStorage</b> (no internet needed).
+      </small>
+    </section>
+
+    <!-- Filters & Summary -->
+    <section class="card">
+      <h2>Filters & Reports</h2>
+      <div class="filters">
+        <div class="quick-filters">
+          <button class="btn" data-range="today">Today</button>
+          <button class="btn" data-range="week">This Week</button>
+          <button class="btn" data-range="month">This Month</button>
+          <button class="btn" data-range="year">This Year</button>
+          <button class="btn" data-range="all">All</button>
+        </div>
+        <div class="custom-range">
+          <label>From
+            <input type="date" id="fromDate" />
+          </label>
+          <label>To
+            <input type="date" id="toDate" />
+          </label>
+          <button class="btn" id="applyRange">Apply</button>
+        </div>
+        <div class="utilities">
+          <button class="btn outline" id="exportCSV">Export CSV</button>
+          <button class="btn danger" id="clearAll">Clear All Data</button>
+        </div>
+      </div>
+
+      <div id="kpis" class="kpis">
+        <div class="kpi">
+          <div class="kpi-label">Total Cost</div>
+          <div class="kpi-value" id="totalCost">0</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Total Revenue</div>
+          <div class="kpi-value" id="totalRevenue">0</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Total Profit</div>
+          <div class="kpi-value profit" id="totalProfit">0</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Items Table -->
+    <section class="card">
+      <div class="table-head">
+        <h2>Items</h2>
+        <input type="search" id="search" placeholder="Search by name…" />
+      </div>
+      <div class="table-wrap">
+        <table id="itemsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Name</th>
+              <th class="num">Purchase (₨)</th>
+              <th class="num">Sale (₨)</th>
+              <th class="num">Qty</th>
+              <th class="num">Revenue (₨)</th>
+              <th class="num">Cost (₨)</th>
+              <th class="num">Profit (₨)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <th colspan="6" class="num">Totals (Filtered)</th>
+              <th class="num" id="tRevenue">0</th>
+              <th class="num" id="tCost">0</th>
+              <th class="num" id="tProfit">0</th>
+              <th></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <!-- Grand Profit -->
+    <section class="grand card">
+      <h2>Grand Total Profit (All Records)</h2>
+      <div class="grand-row">
+        <div>Total Cost: <b id="grandCost">0</b></div>
+        <div>Total Revenue: <b id="grandRevenue">0</b></div>
+        <div>Total Profit: <b id="grandProfit" class="profit">0</b></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container muted center">
+    Built with HTML + CSS + JS | Shop Management Template
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

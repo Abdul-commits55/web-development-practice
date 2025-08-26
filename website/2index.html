@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mall Admin Panel</title>
+  <link rel="stylesheet" href="2index.css">
+    <script defer src="2index.js"></script>
+    
+</head>
+<body>
+  <h1>Hafiz Garments</h1>
+  
+
+  <!-- Product Entry -->
+  <section>
+    <h2>Add Product</h2>
+    <input id="pName" placeholder="Product Name">
+    <input id="pCost" type="number" placeholder="Cost Price">
+    <input id="pPrice" type="number" placeholder="Selling Price">
+    <input id="pStock" type="number" placeholder="Stock Qty">
+    <button onclick="addProduct()">Add Product</button>
+  </section>
+
+  <!-- Product Table -->
+  <section>
+    <h2>Products</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>CP</th>
+          <th>SP</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="productTable"></tbody>
+    </table>
+  </section>
+
+  <!-- Sales Entry -->
+  <section>
+    <h2>Record Sale</h2>
+    <select id="saleProduct"></select>
+    <input id="saleQty" type="number" placeholder="Quantity">
+    <button onclick="addSale()">Add Sale</button>
+  </section>
+
+  <!-- Sales Table -->
+  <section>
+    <h2>Sales</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Qty</th>
+          <th>Revenue</th>
+          <th>Profit</th>
+        </tr>
+      </thead>
+      <tbody id="salesTable"></tbody>
+    </table>
+  </section>
+
+  <!-- KPIs -->
+  <section>
+    <h2>Summary</h2>
+    <p>Total Revenue: <span id="totalRevenue">0</span></p>
+    <p>Total Profit: <span id="totalProfit">0</span></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

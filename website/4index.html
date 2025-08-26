@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>POS - Sale Point</title>
+  <link rel="stylesheet" href="4index.css" />
+  <script src="4index.js"></script>
+</head>
+<body>
+  <header class="container">
+    <h1>Point of Sale (POS)</h1>
+    <p class="muted">Select products, add to cart and checkout</p>
+    <div style="margin-top:10px"><a href="index.html" class="btn">← Back to Dashboard</a></div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Select Product</h2>
+      <div class="grid">
+        <label>
+          Product
+          <select id="productSelect"></select>
+        </label>
+        <label>
+          Quantity
+          <input type="number" id="saleQty" value="1" min="1" />
+        </label>
+        <div class="actions">
+          <button class="btn primary" id="addToCart">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Cart</h2>
+      <div class="table-wrap">
+        <table id="cartTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Item</th>
+              <th class="num">Price (₨)</th>
+              <th class="num">Qty</th>
+              <th class="num">Total (₨)</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <th colspan="4" class="num">Subtotal</th>
+              <th class="num" id="subtotal">0</th>
+              <th></th>
+            </tr>
+            <tr>
+              <th colspan="4" class="num">Discount</th>
+              <th class="num"><input type="number" id="discount" value="0" min="0" /></th>
+              <th></th>
+            </tr>
+            <tr>
+              <th colspan="4" class="num">Grand Total</th>
+              <th class="num" id="grandTotal">0</th>
+              <th></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="actions" style="margin-top:12px">
+        <button class="btn primary" id="checkout">Checkout & Save</button>
+        <button class="btn" id="clearCart">Clear Cart</button>
+      </div>
+      <small class="muted">After checkout the stock will be reduced and sale saved in records.</small>
+    </section>
+  </main>
+
+  <footer class="container muted center">POS - Shop Management</footer>
+  <script src="pos.js"></script>
+</body>
+</html>

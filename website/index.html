@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mall Admin — Products · Sales · Profit</title>
+  <style>
+    :root{--bg:#0f172a;--card:#111827;--muted:#1f2937;--text:#e5e7eb;--sub:#9ca3af;--accent:#22c55e;--danger:#ef4444;--warn:#f59e0b;--info:#3b82f6}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#0b1024,#0f172a);color:var(--text)}
+    .wrap{max-width:1200px;margin:24px auto;padding:0 16px}
+    header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:18px}
+    h1{font-size:1.4rem;margin:0;font-weight:700;letter-spacing:.2px}
+    .grid{display:grid;gap:16px}
+    .cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+    @media (max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media (max-width:560px){.cards{grid-template-columns:1fr}}
+    .card{background:linear-gradient(180deg,#0f172a,#0a0f1f);border:1px solid #1f2937;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:16px}
+    .card h3{margin:0 0 6px 0;font-size:.95rem;color:#cbd5e1}
+    .big{font-size:1.6rem;font-weight:800}
+    .muted{color:var(--sub);font-size:.9rem}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    input,select,button,textarea{background:#0b1222;color:var(--text);border:1px solid #22314b;border-radius:10px;padding:10px 12px;font-size:.95rem}
+    input:focus,select:focus,textarea:focus{outline:2px solid #294c86;border-color:#294c86}
+    button{cursor:pointer;border:1px solid #2a3a57;background:#0f1b33;transition:all .15s ease}
+    button:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+    .btn-primary{border-color:#1760c9}
+    .btn-accent{border-color:#1c9c5a}
+    .btn-danger{border-color:#a72c2c}
+    .btn-ghost{background:transparent;border-color:#2a3a57}
+    table{width:100%;border-collapse:separate;border-spacing:0 10px}
+    th,td{text-align:left;padding:12px 12px;background:#0d1526;border-top:1px solid #1c2a45;border-bottom:1px solid #1c2a45}
+    th{position:sticky;top:0;background:#0a1120;z-index:1;font-weight:600;color:#cbd5e1}
+    tr{border-radius:10px}
+    tr td:first-child, tr th:first-child{border-left:1px solid #1c2a45;border-top-left-radius:10px;border-bottom-left-radius:10px}
+    tr td:last-child, tr th:last-child{border-right:1px solid #1c2a45;border-top-right-radius:10px;border-bottom-right-radius:10px}
+    .tag{padding:4px 8px;border:1px solid #2a3a57;border-radius:999px;font-size:.8rem}
+    .tag.green{border-color:#1c9c5a;color:#86efac}
+    .tag.orange{border-color:#a06a16;color:#fde68a}
+    .tag.red{border-color:#a72c2c;color:#fecaca}
+    .toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .spacer{flex:1}
+    .section-title{display:flex;align-items:center;gap:8px;margin:10px 0;font-weight:700;color:#cbd5e1}
+    .pill{background:#0b1222;border:1px solid #22314b;padding:6px 10px;border-radius:999px;font-size:.8rem;color:#aab4c3}
+    .small{font-size:.85rem;color:#aab4c3}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🛍️ Mall Admin — Products · Sales · Profit</h1>
+      <div class="toolbar">
+        <button id="exportBtn" class="btn-primary">Export JSON</button>
+        <label class="pill"><input id="importFile" type="file" accept="application/json" style="display:none"/> <span>Import JSON</span></label>
+        <button id="resetBtn" class="btn-danger">Reset Data</button>
+      </div>
+    </header>
+
+    <!-- DASHBOARD CARDS -->
+    <section class="grid cards">
+      <div class="card">
+        <h3>Total Products</h3>
+        <div class="big" id="kpiProducts">0</div>
+        <div class="muted">Unique SKUs in catalog</div>
+      </div>
+      <div class="card">
+        <h3>Total Sales</h3>
+        <div class="big" id="kpiSales">0</div>
+        <div class="muted">Transactions recorded</div>
+      </div>
+      <div class="card">
+        <h3>Total Revenue</h3>
+        <div class="big" id="kpiRevenue">0</div>
+        <div class="muted">Sum of sale amounts</div>
+      </div>
+      <div class="card">
+        <h3>Total Profit</h3>
+        <div class="big" id="kpiProfit">0</div>
+        <div class="muted">After cost (CP)</div>
+      </div>
+    </section>
+
+    <!-- PRODUCT FORM -->
+    <section class="card" style="margin-top:16px">
+      <div class="section-title">📦 Add / Edit Product</div>
+      <div class="row">
+        <input id="pName" placeholder="Product name" />
+        <input id="pSKU" placeholder="SKU / Code" />
+        <input id="pCategory" placeholder="Category (optional)" />
+        <input id="pCost" type="number" step="0.01" placeholder="Cost Price (CP)" />
+        <input id="pPrice" type="number" step="0.01" placeholder="Selling Price (SP)" />
+        <input id="pStock" type="number" step="1" placeholder="Stock Qty" />
+        <button id="addProduct" class="btn-accent">Save Product</button>
+      </div>
+      <div class="small" style="margin-top:6px">Tip: Profit per unit = SP − CP</div>
+    </section>
+
+    <!-- PRODUCT TABLE -->
+    <section class="card" style="margin-top:16px">
+      <div class="toolbar">
+        <div class="section-title">🗂️ Products</div>
+        <span class="spacer"></span>
+        <input id="productSearch" placeholder="Search name / SKU / category" />
+      </div>
+      <div style="overflow:auto;max-height:360px">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>SKU</th>
+              <th>Category</th>
+              <th>CP</th>
+              <th>SP</th>
+              <th>In Stock</th>
+              <th>Unit Profit</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="productBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SALE FORM -->
+    <section class="card" style="margin-top:16px">
+      <div class="section-title">🧾 Record Sale</div>
+      <div class="row">
+        <select id="sProduct"></select>
+        <input id="sQty" type="number" step="1" placeholder="Quantity" />
+        <input id="sDate" type="date" />
+        <button id="addSale" class="btn-primary">Add Sale</button>
+      </div>
+      <div class="small" style="margin-top:6px">Stock will be reduced automatically on sale.</div>
+    </section>
+
+    <!-- SALES TABLE -->
+    <section class="card" style="margin-top:16px">
+      <div class="toolbar">
+        <div class="section-title">💳 Sales</div>
+        <span class="spacer"></span>
+        <input id="salesSearch" placeholder="Search by product or date" />
+      </div>
+      <div style="overflow:auto;max-height:360px">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Product</th>
+              <th>Qty</th>
+              <th>Amount (Revenue)</th>
+              <th>Profit</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="salesBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FOOTER / HELP -->
+    <section class="card" style="margin:16px 0">
+      <div class="section-title">ℹ️ Notes</div>
+      <ul class="small">
+        <li>All data is stored in your browser (<b>localStorage</b>). Use Export/Import to backup or move to another device.</li>
+        <li>Revenue = SP × Qty. Profit = (SP − CP) × Qty.</li>
+        <li>Edit / delete items using actions in each table row.</li>
+      </ul>
+    </section>
+  </div>
+
+  <script>
+    // ---------- Utilities ----------
+    const $ = (id) => document.getElementById(id);
+    const money = (n) => (Number(n)||0).toLocaleString(undefined,{maximumFractionDigits:2});
+    const uid = () => crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2);
+
+    const store = {
+      key: 'mall-admin-v1',
+      read(){
+        try{ return JSON.parse(localStorage.getItem(this.key)) || {products:[], sales:[]}; }
+        catch{ return {products:[], sales:[]}; }
+      },
+      write(data){ localStorage.setItem(this.key, JSON.stringify(data)); }
+    };
+
+    let state = store.read();
+
+    // ---------- Renderers ----------
+    function renderProducts(list = state.products){
+      const term = $('productSearch').value.trim().toLowerCase();
+      const tbody = $('productBody');
+      tbody.innerHTML = '';
+      list
+        .filter(p=> !term || [p.name,p.sku,p.category].join(' ').toLowerCase().includes(term))
+        .forEach(p=>{
+          const tr = document.createElement('tr');
+          const unitProfit = (p.price - p.cost) || 0;
+          tr.innerHTML = `
+            <td>${p.name}</td>
+            <td><span class="pill">${p.sku||'-'}</span></td>
+            <td>${p.category||'-'}</td>
+            <td>${money(p.cost)}</td>
+            <td>${money(p.price)}</td>
+            <td>${p.stock ?? 0}</td>
+            <td><span class="tag ${unitProfit>0?'green':unitProfit<0?'red':'orange'}">${money(unitProfit)}</span></td>
+            <td>
+              <button class="btn-ghost" onclick="editProduct('${p.id}')">Edit</button>
+              <button class="btn-ghost" onclick="deleteProduct('${p.id}')">Delete</button>
+            </td>`;
+          tbody.appendChild(tr);
+        });
+      updateKPIs();
+      fillSaleProducts();
+    }
+
+    function renderSales(){
+      const term = $('salesSearch').value.trim().toLowerCase();
+      const tbody = $('salesBody');
+      tbody.innerHTML = '';
+      state.sales
+        .filter(s=>{
+          const prod = state.products.find(p=>p.id===s.productId);
+          const label = `${s.date||''} ${(prod?prod.name:'')}`.toLowerCase();
+          return !term || label.includes(term)
+        })
+        .sort((a,b)=> (a.date||'').localeCompare(b.date))
+        .forEach(s=>{
+          const p = state.products.find(p=>p.id===s.productId);
+          const name = p? p.name : '—';
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${s.date||'-'}</td>
+            <td>${name}</td>
+            <td>${s.qty}</td>
+            <td>${money(s.amount)}</td>
+            <td>${money(s.profit)}</td>
+            <td>
+              <button class="btn-ghost" onclick="deleteSale('${s.id}')">Delete</button>
+            </td>`;
+          tbody.appendChild(tr);
+        });
+      updateKPIs();
+    }
+
+    function updateKPIs(){
+      const revenue = state.sales.reduce((a,s)=>a+(Number(s.amount)||0),0);
+      const profit = state.sales.reduce((a,s)=>a+(Number(s.profit)||0),0);
+      $('kpiProducts').textContent = state.products.length;
+      $('kpiSales').textContent = state.sales.length;
+      $('kpiRevenue').textContent = money(revenue);
+      $('kpiProfit').textContent = money(profit);
+    }
+
+    function fillSaleProducts(){
+      const sel = $('sProduct');
+      const current = sel.value;
+      sel.innerHTML = '';
+      if(state.products.length===0){
+        const opt = document.createElement('option');
+        opt.value=''; opt.textContent='— Add products first —';
+        sel.appendChild(opt);
+        return;
+      }
+      state.products.forEach(p=>{
+        const o = document.createElement('option');
+        o.value=p.id; o.textContent = `${p.name} (Stock: ${p.stock ?? 0}, SP: ${money(p.price)})`;
+        sel.appendChild(o);
+      });
+      if(current) sel.value = current;
+    }
+
+    //
