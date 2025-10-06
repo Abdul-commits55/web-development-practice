@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crud operations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- <button onclick="clickMe()" id="click-me">Click me</button> -->
+    <!-- <img src="background.jpeg" id="image" style="display: none;"> -->
+    <table>
+        <tr>
+            <td>
+                <form autocomplete="off" onsubmit="onformsubmit()">
+                    <div>
+                        <label for="productcode">ProductCode</label>
+                        <input type="text" name="productcode" id="productcode">
+                    </div>
+                    <div>
+                        <label for="product">ProductName</label>
+                        <input type="text" name="product" id="product">
+                    </div>
+                    <div>
+                        <label for="qty">Qty</label>
+                        <input type="number" name="qty" id="qty">
+                    </div>
+                    <div>
+                        <label for="perprice">Price</label>
+                        <input type="number" name="perprice" id="perprice">
+                    </div>
+                     <div>
+                        <label for="description">Description</label>
+                        <input type="text" name="description" id="description">
+                    </div>
+                    <div class="form_action--button">
+                        <input type="submit" value="submit">
+                        <input type="reset" value="reset">
+                    </div>
+                </form>
+                <td>
+                    <table class="list" id="storelist">
+                        <thead>
+                            <tr>
+                                <th>ProductCode</th>
+                                <th>ProductName</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </td>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="./script.js"> </script>
+    <!-- <script>
+        // let count = 0;
+        // function clickMe(){
+        //     console.log('Test');
+        //     let button = document.getElementById('click-me');
+        //     button.textContent = `Click me ${count++}`;
+        //     let image = document.getElementById('image');
+        //     image.style.display='block';
+        //     image.style.width='200px';
+        // }
+        function clickMe(){
+            let table = document.getElementById('parent-table');
+            table.style.display ='none';
+        }
+    </script> -->
+</body>
+
+</html>
