@@ -1,7 +1,7 @@
 
 body{
     margin: 0;
-    background: linear-gradient(to right, lightblue, yellow);
+    background:blue;
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -12,15 +12,15 @@ body{
 .container{
     background: aliceblue;
     border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
     text-align: center;
-    padding: 10px;
-    width: 450px;
+    padding: 100px;
+    width: 600px;
     margin: 5px;
 }
 
 .btn{
-    background-color: green;
+    background-color: rgb(20, 14, 195);
     color: aliceblue;
     padding: 10px 30px;
     font-size: 16px;
